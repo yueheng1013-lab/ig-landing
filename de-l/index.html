@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>轉職前先問自己的清單</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4efe7;
+      --paper: #fffdf9;
+      --ink: #2b2a28;
+      --muted: #6b6560;
+      --line: #e6ddd2;
+      --orange: #d85a2a;
+      --orange-soft: #f8e6dc;
+      --blue: #2c5f8a;
+      --blue-soft: #e7f0f6;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Noto Sans TC", "Noto Sans CJK TC", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 1.5rem 1.15rem 3rem;
+    }
+    header {
+      background: var(--paper);
+      border-radius: 1.25rem;
+      padding: 1.6rem 1.3rem 1.4rem;
+      box-shadow: 0 8px 28px rgba(80, 50, 20, 0.06);
+      border: 1px solid var(--line);
+    }
+    .kicker {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+      background: var(--orange-soft);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin: 0 0 0.85rem;
+    }
+    h1 {
+      font-size: clamp(1.6rem, 6vw, 2rem);
+      line-height: 1.3;
+      margin: 0 0 0.7rem;
+      letter-spacing: 0.02em;
+    }
+    .lede {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .intro {
+      margin: 1.35rem 0 0.4rem;
+    }
+    .intro p { margin: 0 0 0.85rem; }
+    h2 {
+      font-size: 1.15rem;
+      line-height: 1.4;
+      margin: 0 0 0.65rem;
+    }
+    section.card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      padding: 1.25rem 1.2rem 1.15rem;
+      margin: 1rem 0;
+    }
+    .num {
+      display: inline-block;
+      min-width: 1.7rem;
+      height: 1.7rem;
+      line-height: 1.7rem;
+      text-align: center;
+      border-radius: 999px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-right: 0.4rem;
+      vertical-align: middle;
+    }
+    p { margin: 0 0 0.7rem; }
+    .note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      background: #f7f3ee;
+      border-radius: 0.7rem;
+      padding: 0.7rem 0.85rem;
+      margin: 0.4rem 0 0.8rem;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.06em;
+      margin-right: 0.25rem;
+    }
+    ul.asks {
+      list-style: none;
+      margin: 0.4rem 0 0;
+      padding: 0;
+    }
+    ul.asks li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      padding: 0.65rem 0;
+      border-top: 1px dashed var(--line);
+    }
+    ul.asks li:first-child { border-top: 0; }
+    ul.asks input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 1.2rem;
+      height: 1.2rem;
+      margin: 0.25rem 0 0;
+      flex: 0 0 1.2rem;
+      border: 2px solid #c9b8a8;
+      border-radius: 0.28rem;
+      background: #fff;
+      cursor: pointer;
+    }
+    ul.asks input[type="checkbox"]:checked {
+      background: var(--orange);
+      border-color: var(--orange);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.4' d='M3 8.2l3.1 3.1L13 4.5'/%3E%3C/svg%3E");
+      background-size: 0.85rem;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    ul.asks label { cursor: pointer; flex: 1; }
+    .close {
+      background: var(--blue-soft);
+      border-color: #d5e4ef;
+      text-align: left;
+    }
+    .quote {
+      font-weight: 700;
+      color: var(--blue);
+      font-size: 1.08rem;
+      letter-spacing: 0.04em;
+      margin: 0 0 0.85rem;
+      line-height: 1.6;
+    }
+    .cta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+    .btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 0.8rem 1rem;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: var(--blue);
+      border: 1.5px solid var(--blue);
+    }
+    footer {
+      margin-top: 1.6rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.7;
+    }
+    footer p { margin: 0 0 0.55rem; }
+    @media (min-width: 640px) {
+      body { font-size: 18px; }
+      .wrap { padding-top: 2.2rem; }
+      .cta { flex-direction: row; }
+      .btn { flex: 1; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <p class="kicker">留言「轉職」送給你</p>
+      <h1>轉職前，先問自己的清單</h1>
+      <p class="lede">可以先收藏，想轉之前再拿出來看。不用急著做決定。</p>
+    </header>
+
+    <div class="intro">
+      <p>有人跟我說想轉業務，我常常會先勸退。不是不歡迎你來，是希望你先聽完難處，再看適不適合自己。</p>
+      <p>下面這幾件事，中了不代表從此不能做，代表要先處理好，再進來。不然前幾個月，很容易把存款和自信一起耗掉。</p>
+    </div>
+
+    <section class="card">
+      <h2><span class="num">1</span>收入不穩的時候，你睡得著嗎？</h2>
+      <p>月底收入還沒確定，很容易整晚睡不好。前幾個月收入常常忽高忽低，這段適應期要先想清楚自己撐不撐得住。</p>
+      <p class="note"><span class="tag">示意</span>有人這個月三萬，下個月可能只剩八千。這是收入起伏的例子，不是統計，也不代表之後會出現一樣的數字。</p>
+      <ul class="asks">
+        <li>
+          <input type="checkbox" id="q1a">
+          <label for="q1a">如果連續幾個月收入都不穩定，我的生活還過得下去嗎？</label>
+        </li>
+        <li>
+          <input type="checkbox" id="q1b">
+          <label for="q1b">我有沒有先留大約半年的生活費？這是緊急預備金的常見做法，能讓自己比較撐得住，但不是能撐多久的公式。</label>
+        </li>
+        <li>
+          <input type="checkbox" id="q1c">
+          <label for="q1c">沒有固定數字的那幾個月，我會不會因此睡不好、做不了決定？</label>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">2</span>你是不是想靠朋友撐業績？</h2>
+      <p>常聽到一句：「我朋友很多，應該不難吧。」朋友也許會捧你一次，通常不會捧你一年。</p>
+      <p>朋友可以拿來練習開口；長期還是要固定認識新的人。</p>
+      <ul class="asks">
+        <li>
+          <input type="checkbox" id="q2a">
+          <label for="q2a">我有沒有把朋友當成「練習開口」的對象，而不是長期業績來源？</label>
+        </li>
+        <li>
+          <input type="checkbox" id="q2b">
+          <label for="q2b">離開熟人圈以後，我願不願意持續認識新的人？</label>
+        </li>
+        <li>
+          <input type="checkbox" id="q2c">
+          <label for="q2c">如果朋友只捧一次，接下來的路，我還走得下去嗎？</label>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">3</span>你只是想離開現在嗎？</h2>
+      <p>受不了主管、受不了現在的工作，很常見。可是被要求、被檢視、被拒絕，到這裡常常會更多，而且要自己面對。</p>
+      <p>先把想過的生活寫下來，寫得比「離開這裡」更具體，再決定要不要轉。</p>
+      <ul class="asks">
+        <li>
+          <input type="checkbox" id="q3a">
+          <label for="q3a">我現在想轉，是因為看清楚自己要什麼，還是只想逃離現在？</label>
+        </li>
+        <li>
+          <input type="checkbox" id="q3b">
+          <label for="q3b">我能不能寫得出比「不想再待在這裡」更具體的生活樣子？</label>
+        </li>
+        <li>
+          <input type="checkbox" id="q3c">
+          <label for="q3c">如果被要求、被檢視、被拒絕變多了，我還認不認得出來，這就是我想走的路？</label>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">4</span>被拒絕以後，你怎麼過那一晚？</h2>
+      <p>被已讀不回，很容易一整天都在想自己哪裡做錯。拒絕會比想像中頻繁；難過可以，給它一個晚上，隔天再繼續。</p>
+      <ul class="asks">
+        <li>
+          <input type="checkbox" id="q4a">
+          <label for="q4a">被拒絕或已讀不回時，我能不能讓難過停在那一晚，隔天再繼續？</label>
+        </li>
+        <li>
+          <input type="checkbox" id="q4b">
+          <label for="q4b">我有沒有預先接受：拒絕會比想像中頻繁，這不代表自己做錯了？</label>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">5</span>沒有人盯的時候，你還會出門嗎？</h2>
+      <p>這裡沒有人規定你幾點出門。自由的另一面，是行程要自己扛起來。</p>
+      <p>前三個月可以先跟著團隊節奏、每週對行程，再慢慢改成自己排。</p>
+      <ul class="asks">
+        <li>
+          <input type="checkbox" id="q5a">
+          <label for="q5a">如果沒有人催我，我還能把自己的行程走完嗎？</label>
+        </li>
+        <li>
+          <input type="checkbox" id="q5b">
+          <label for="q5b">前三個月，我願不願意先跟著團隊節奏，每週把行程拿出來對一次？</label>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card close">
+      <p class="quote">用邏輯規劃未來<br>用溫度感受現在</p>
+      <p>可以不用急著做決定。先把難處聽完，再看適不適合自己。</p>
+      <p>看完清單，若想把你寫下來的生活跟我說，或想釐清現在的狀況，歡迎追蹤我，再私訊聊聊。沒有要想調整的話，收藏起來就好。</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://www.instagram.com/s.y.heng/">追蹤 @s.y.heng</a>
+        <a class="btn btn-secondary" href="https://www.instagram.com/s.y.heng/">想聊再私訊我</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>文中「這個月三萬、下個月八千」為收入起伏的示意例子，不是統計數據，也不代表之後會出現一樣的情況。半年生活費為緊急預備金的常見建議。實際收入、適應狀況因人而異，不構成職涯或收入承諾。</p>
+      <p>本頁為職涯自我檢視清單，不是保險商品說明或招攬。商品內容以保單條款為準。</p>
+    </footer>
+  </main>
+</body>
+</html>
